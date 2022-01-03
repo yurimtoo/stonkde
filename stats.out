@@ -1,0 +1,32 @@
+Number of apes that have fed the DRS bot: 8822
+The median shares held is 38.0
+The biggest whale has 40022.0 shares, which is 2.756% of all DRS'd shares
+7.9233% of holders have 1 share
+22.307% of holders are X holders
+46.973% of holders are XX holders
+27.862% of holders are XXX holders
+2.8564% of holders are XXXX+ holders
+11.074% of holders have <=  2 shares
+14.701% of holders have <=  4 shares
+21.605% of holders have <=  8 shares
+33.563% of holders have <= 16 shares
+47.290% of holders have <= 32 shares
+61.856% of holders have <= 64 shares
+77.148% of holders have <=128 shares
+X     apes hold 0.453% of DRS'd shares
+XX    apes hold 10.51% of DRS'd shares
+XXX   apes hold 43.86% of DRS'd shares
+XXXX+ apes hold 45.16% of DRS'd shares
+Apes holding 750.0 or fewer shares hold a total of ~50% of DRS'd shares
+Quantiles:
+  10%: 2.0 shares
+  25%: 10.0 shares
+  33%: 16.0 shares
+  69%: 97.0 shares
+  75%: 110.75 shares
+  90%: 312.0 shares
+  95%: 600.0 shares
+  99%: 2000.789999999999 shares
+Sharecounts of the 20 biggest whales that have fed the bot:
+[40022. 21578. 18801. 14012. 13600. 10701. 10283. 10218. 10001.  8400.
+  8397.  8244.  8000.  6641.  6402.  6304.  6000.  6000.  5802.  5421.]
