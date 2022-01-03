@@ -397,7 +397,6 @@ def plot(nshares):
                                 added calls to archive() and make_gif()
     """
     # Plot the histogram with various bin sizes and spacings
-    #bins = np.logspace(0, np.log10(nshares.max()), nbins)
     for nbins in [int(np.ceil(nshares.max())),20000,10000,5000,1000,100]:
         bins = np.linspace(1, int(np.ceil(nshares.max())), nbins)
         ncount, bins, patches = plt.hist(nshares, bins=bins, 
@@ -495,6 +494,28 @@ def plot(nshares):
     plt.legend(loc='best')
     plt.gca().set_rasterized(True)
     plt.savefig('post/figs/histogram_with_kde_log_400-40k.png', dpi=1000)
+    plt.close()
+    # Pie chart of shareholders
+    iX_XX =  nshares<  100
+    iXXX  = (nshares< 1000) * (nshares>= 100)
+    iXXXX = (nshares<10000) * (nshares>=1000)
+    XXXXX = np.sort(nshares[nshares>=10000])
+    pies  = np.zeros(3 + XXXXX.size)
+    pies[:XXXXX.size] = XXXXX
+    pies[-3] = nshares[iX_XX].sum()
+    pies[-2] = nshares[iXXX].sum()
+    pies[-1] = nshares[iXXXX].sum()
+    labels = ["#"+str(XXXXX.size - i)+" whale: " + str(100*XXXXX[i]/nshares.sum())[:4] + "%" for i in range(XXXXX.size)] + \
+             ['X+XX apes: ' + str(100*pies[-3]/nshares.sum())[:4] + "%", 
+              'XXX apes: ' + str(100*pies[-2]/nshares.sum())[:4] + "%", 
+              'XXXX whales: ' + str(100*pies[-1]/nshares.sum())[:4] + "%"]
+    plt.figure(figsize=[10, 10])
+    icolor = [12, 13, 0, 1, 2, 3, 6, 7, 4, 5, 8, 9]
+    colors = list(plt.cm.tab20(icolor))
+    plt.gca().set_prop_cycle('color', colors)
+    patches, texts = plt.pie(pies, labels=labels, labeldistance=1.05)
+    plt.title("Proportion of DRS'd Shares")
+    plt.savefig('post/figs/shareholders_piechart.png', bbox_inches='tight')
     plt.close()
     # Archive these plots for the future
     archive()
